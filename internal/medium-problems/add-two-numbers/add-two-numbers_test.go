@@ -140,7 +140,7 @@ func Test_AddTwoNumbers(t *testing.T) {
 
 	for i := range tests {
 		fmt.Printf("test %d\n", i)
-		test := tests[5]
+		test := tests[i]
 
 		result := AddTwoNumbers(test.inputLinkedList1, test.inputLinkedList2)
 
