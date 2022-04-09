@@ -1,7 +1,7 @@
 package add_two_numbers
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -49,4 +49,51 @@ func AddTwoNumbers(l1, l2 *ListNode) *ListNode {
 		}
 	}
 	return result
+}
+
+func AddTwoNumbers2(l1, l2 *ListNode) *ListNode {
+	sum := 0
+	carryOver := 0
+	current := &ListNode{Val: 0, Next: nil}
+	result := current // &ListNode{Val: 0, Next: &ListNode{Val: 8, Next: &ListNode{Val: 0, Next: nil}}}
+
+	for l1 != nil || l2 != nil {
+		if l1 == nil {
+			sum = 0 + l2.Val + carryOver
+		} else if l2 == nil {
+			sum = l1.Val + 0 + carryOver
+		} else {
+			sum = l1.Val + l2.Val + carryOver
+		}
+
+		if sum >= 10 {
+			carryOver = 1
+			sum = sum - 10
+		} else {
+			carryOver = 0
+		}
+
+		current.Next = &ListNode{Val: sum, Next: nil}
+		current = current.Next
+
+		if carryOver == 0 && l1.Next == nil {
+			current.Next = l2.Next
+			break
+		} else if carryOver == 0 && l2.Next == nil {
+			current.Next = l1.Next
+			break
+		}
+
+		if l1 != nil {
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			l2 = l2.Next
+		}
+		if carryOver == 1 && l1 == nil && l2 == nil {
+			current = &ListNode{Val: carryOver, Next: nil}
+		}
+	}
+
+	return result.Next
 }

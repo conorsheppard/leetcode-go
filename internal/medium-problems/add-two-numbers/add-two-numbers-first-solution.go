@@ -2,7 +2,7 @@ package add_two_numbers
 
 import (
 	"fmt"
-"strconv"
+	"strconv"
 )
 
 // AddTwoNumbers problem: https://leetcode.com/problems/add-two-numbers/
@@ -43,7 +43,7 @@ func addNextNodes(combinedNums string) *ListNode {
 
 	if len(combinedNums)-1 == 0 {
 		return &ListNode{
-			Val: val,
+			Val:  val,
 			Next: nil,
 		}
 	}
@@ -56,30 +56,33 @@ func addNextNodes(combinedNums string) *ListNode {
 }
 
 func acceptedSolution(l1, l2 *ListNode) *ListNode {
-	cur := new(ListNode)
-	ret := cur
+	current := new(ListNode)
+	result := current
 	sum := 0
+
 	for l1 != nil || l2 != nil {
 		if l1 != nil {
 			sum = sum + l1.Val
 			l1 = l1.Next
 		}
+
 		if l2 != nil {
 			sum = sum + l2.Val
 			l2 = l2.Next
 		}
 
-		cur.Next = &ListNode{
-			sum%10,
+		current.Next = &ListNode{
+			sum % 10,
 			nil,
 		}
-		cur = cur.Next
-		sum = sum/10
+
+		current = current.Next
+		sum = sum / 10
 	}
 
 	if sum > 0 {
-		cur.Next = &ListNode{sum,nil}
+		current.Next = &ListNode{sum, nil}
 	}
 
-	return ret.Next
+	return result.Next
 }
