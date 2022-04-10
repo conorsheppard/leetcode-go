@@ -79,6 +79,7 @@ func AddTwoNumbers2(l1, l2 *ListNode) *ListNode {
 		if carryOver == 0 && l1.Next == nil {
 			current.Next = l2.Next
 			break
+			// todo: nil pointer race condition here
 		} else if carryOver == 0 && l2.Next == nil {
 			current.Next = l1.Next
 			break

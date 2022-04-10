@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 )
+
 // https://leetcode.com/problems/add-two-numbers/
 
 /*
@@ -24,7 +25,7 @@ func Test_AddTwoNumbers(t *testing.T) {
 	tests := []struct {
 		inputLinkedList1 *ListNode
 		inputLinkedList2 *ListNode
-		expectedResult *ListNode
+		expectedResult   *ListNode
 	}{
 		// test 0: [7,0,8]
 		{
@@ -37,7 +38,7 @@ func Test_AddTwoNumbers(t *testing.T) {
 				Next: &ListNode{Val: 6, Next: &ListNode{Val: 4, Next: nil}},
 			},
 			expectedResult: &ListNode{
-				Val: 7,
+				Val:  7,
 				Next: &ListNode{Val: 0, Next: &ListNode{Val: 8, Next: nil}},
 			},
 		},
@@ -52,7 +53,7 @@ func Test_AddTwoNumbers(t *testing.T) {
 				Next: nil,
 			},
 			expectedResult: &ListNode{
-				Val: 0,
+				Val:  0,
 				Next: nil,
 			},
 		},
@@ -60,19 +61,15 @@ func Test_AddTwoNumbers(t *testing.T) {
 		{
 			inputLinkedList1: &ListNode{
 				Val:  9,
-				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next:
-					&ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next:
-						&ListNode{Val: 9, Next: &ListNode{Val: 9, Next: nil}}}}}}}},
+				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: nil}}}}}}}},
 			},
 			inputLinkedList2: &ListNode{
 				Val:  9,
 				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: nil}}},
 			},
 			expectedResult: &ListNode{
-				Val: 8,
-				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 1, Next: nil}}}}}}},
+				Val:  8,
+				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}}}}}},
 			},
 		},
 		// test 3: [7,0,4,0,1]
@@ -86,54 +83,38 @@ func Test_AddTwoNumbers(t *testing.T) {
 				Next: &ListNode{Val: 6, Next: &ListNode{Val: 4, Next: &ListNode{Val: 9, Next: nil}}},
 			},
 			expectedResult: &ListNode{
-				Val: 7,
-				Next: &ListNode{Val: 0, Next: &ListNode{Val: 4, Next:
-					&ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}}},
+				Val:  7,
+				Next: &ListNode{Val: 0, Next: &ListNode{Val: 4, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}}},
 			},
 		},
 		// test 4: [6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
 		{
 			inputLinkedList1: &ListNode{
 				Val:  1,
-				Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next:
-					nil}}}}}}}}}}}}}}}}}}}}}}}}}}}}}},
+				Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}}}}}}}}}}}}}}}}}}}}}}}}}}}}},
 			},
 			inputLinkedList2: &ListNode{
 				Val:  5,
 				Next: &ListNode{Val: 6, Next: &ListNode{Val: 4, Next: &ListNode{Val: 9, Next: nil}}},
 			},
 			expectedResult: &ListNode{
-				Val: 8,
-				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 1, Next: nil}}}}}}},
+				Val:  8,
+				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}}}}}},
 			},
 		},
 		// test 5: [8,9,9,9,0,0,0,0,1]
 		{
 			inputLinkedList1: &ListNode{
 				Val:  9,
-				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next:
-				&ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: nil}}}}}},
+				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: nil}}}}}},
 			},
 			inputLinkedList2: &ListNode{
 				Val:  9,
 				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: nil}}},
 			},
 			expectedResult: &ListNode{
-				Val: 8,
-				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next:
-				&ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next:
-				&ListNode{Val: 1, Next: nil}}}}}}},
+				Val:  8,
+				Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}}}}}},
 			},
 		},
 	}
@@ -145,14 +126,31 @@ func Test_AddTwoNumbers(t *testing.T) {
 		result := AddTwoNumbers(test.inputLinkedList1, test.inputLinkedList2)
 
 		temp := result
-		for {
-			if temp.Next != nil {
-				fmt.Print(temp.Val)
-				temp = temp.Next
-			} else {
-				fmt.Println(temp.Val)
-				break
-			}
+
+		resultStr := formatLinkedListAsString(temp)
+		expectedResultStr := formatLinkedListAsString(test.expectedResult)
+
+		fmt.Printf("result: %s\n", resultStr)
+		fmt.Printf("expected result: %s\n", expectedResultStr)
+
+		if expectedResultStr == resultStr {
+			fmt.Println("PASS!!")
+		} else {
+			fmt.Println("FAIL!!")
 		}
 	}
+}
+
+func formatLinkedListAsString(list *ListNode) string {
+	resultStr := ""
+	for {
+		if list.Next != nil {
+			resultStr = fmt.Sprintf("%d%s", list.Val, resultStr)
+			list = list.Next
+		} else {
+			resultStr = fmt.Sprintf("%d%s", list.Val, resultStr)
+			break
+		}
+	}
+	return resultStr
 }
