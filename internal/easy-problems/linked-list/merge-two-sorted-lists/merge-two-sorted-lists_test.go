@@ -15,20 +15,20 @@ import (
 // Both list1 and list2 are sorted in non-decreasing order.
 
 func Test_MergeTwoSortedLists(t *testing.T) {
-	tests := []struct{
-		list1 *ListNode
-		list2 *ListNode
+	tests := []struct {
+		list1        *ListNode
+		list2        *ListNode
 		expectedList *ListNode
 	}{
 		{
-			list1: nil,
-			list2: nil,
+			list1:        nil,
+			list2:        nil,
 			expectedList: nil,
 		},
 		{
-			list1: nil,
-			list2: &ListNode{Val:  0, Next: nil},
-			expectedList: &ListNode{Val:  0, Next: nil},
+			list1:        nil,
+			list2:        &ListNode{Val: 0, Next: nil},
+			expectedList: &ListNode{Val: 0, Next: nil},
 		},
 		{
 			list1: &ListNode{
@@ -40,8 +40,8 @@ func Test_MergeTwoSortedLists(t *testing.T) {
 				Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: nil}},
 			},
 			expectedList: &ListNode{
-				Val:  2,
-				Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val:  5,
+				Val: 2,
+				Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val: 5,
 					Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: nil}},
 				}}},
 			},
@@ -56,9 +56,7 @@ func Test_MergeTwoSortedLists(t *testing.T) {
 				Next: &ListNode{Val: 6, Next: &ListNode{Val: 8, Next: nil}},
 			},
 			expectedList: &ListNode{
-				Val:  2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 5, Next:
-				&ListNode{Val:  6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}},
-				}}},
+				Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}}},
 			},
 		},
 		{
@@ -71,9 +69,7 @@ func Test_MergeTwoSortedLists(t *testing.T) {
 				Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: nil}},
 			},
 			expectedList: &ListNode{
-				Val:  1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 5, Next:
-				&ListNode{Val:  5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}}},
-				}}},
+				Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 5, Next: &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}}}}}},
 			},
 		},
 		{
@@ -86,15 +82,13 @@ func Test_MergeTwoSortedLists(t *testing.T) {
 				Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}},
 			},
 			expectedList: &ListNode{
-				Val:  7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next:
-				&ListNode{Val:  7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}}},
-				}}},
+				Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}}}}}},
 			},
 		},
 		{
-			list1: &ListNode{Val:  1, Next: nil},
-			list2: &ListNode{Val:  0, Next: nil},
-			expectedList: &ListNode{Val:  0, Next: &ListNode{Val:  1, Next: nil}},
+			list1:        &ListNode{Val: 1, Next: nil},
+			list2:        &ListNode{Val: 0, Next: nil},
+			expectedList: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}},
 		},
 	}
 
