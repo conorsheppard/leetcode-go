@@ -45,18 +45,8 @@ func Test_deleteNode(t *testing.T) {
 		for ; test.linkedList != nil; test.linkedList, test.expectedResult = test.linkedList.Next, test.expectedResult.Next {
 			if test.linkedList.Val != test.expectedResult.Val {
 				t.Errorf("test.inputList.Val: %d != test.expectedResult.Val: %d", test.linkedList.Val, test.expectedResult.Val)
-			}
-		}
-	}
-}
 
-func printLinkedList(l1 *ListNode) {
-	for ; l1 != nil; l1 = l1.Next {
-		fmt.Print(l1.Val)
-		if l1.Next != nil {
-			fmt.Print(", ")
-		} else {
-			fmt.Println()
+			}
 		}
 	}
 }
