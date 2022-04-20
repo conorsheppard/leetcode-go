@@ -8,16 +8,16 @@ import (
 
 func Test_reverseList(t *testing.T) {
 	tests := []struct {
-		inputList    *l.ListNode
-		expectedList *l.ListNode
+		inputList    *l.Node
+		expectedList *l.Node
 	}{
 		{
-			inputList:    &l.ListNode{Val: 1, Next: &l.ListNode{Val: 1, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 2, Next: nil}}}}},
-			expectedList: &l.ListNode{Val: 1, Next: &l.ListNode{Val: 2, Next: nil}},
+			inputList:    &l.Node{Val: 1, Next: &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 2, Next: &l.Node{Val: 2, Next: nil}}}}},
+			expectedList: &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: nil}},
 		},
 		{
-			inputList:    &l.ListNode{Val: 1, Next: &l.ListNode{Val: 1, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 3, Next: nil}}}}}},
-			expectedList: &l.ListNode{Val: 1, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 3, Next: nil}}},
+			inputList:    &l.Node{Val: 1, Next: &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 2, Next: &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: nil}}}}}},
+			expectedList: &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: nil}}},
 		},
 		{
 			inputList:    nil,

@@ -1,14 +1,11 @@
 package reverse_list
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import l "leetcode/internal/easy-problems/linked-list"
 
-func reverseList(head *ListNode) *ListNode {
-	var cur *ListNode
+func reverseList(head *l.Node) *l.Node {
+	var cur *l.Node
 	for ; head != nil; head = head.Next {
-		newNode := &ListNode{Val: head.Val, Next: cur}
+		newNode := &l.Node{Val: head.Val, Next: cur}
 		cur = newNode
 	}
 	return cur

@@ -4,12 +4,12 @@ import (
 	"fmt"
 )
 
-type ListNode struct {
+type Node struct {
 	Val  int
-	Next *ListNode
+	Next *Node
 }
 
-func GetLinkedListAsString(l1 *ListNode) string {
+func GetLinkedListAsString(l1 *Node) string {
 	listStr := "["
 	for ; l1 != nil; l1 = l1.Next {
 		listStr = fmt.Sprintf("%s%d", listStr, l1.Val)

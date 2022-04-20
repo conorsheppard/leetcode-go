@@ -8,7 +8,7 @@ import (
 
 func Test_HasCycle(t *testing.T) {
 	tests := []struct {
-		inputList      *l.ListNode
+		inputList      *l.Node
 		expectedResult bool
 		cycleFrom      int
 		cycleTo        int
@@ -19,46 +19,46 @@ func Test_HasCycle(t *testing.T) {
 			cycleFrom:      -1,
 		},
 		{
-			inputList:      &l.ListNode{Val: 2, Next: &l.ListNode{Val: 3, Next: &l.ListNode{Val: 4, Next: nil}}},
+			inputList:      &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: &l.Node{Val: 4, Next: nil}}},
 			expectedResult: false,
 			cycleFrom:      -1,
 		},
 		{
-			inputList:      &l.ListNode{Val: 1, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 5, Next: &l.ListNode{Val: 7, Next: &l.ListNode{Val: 8, Next: nil}}}}},
+			inputList:      &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 5, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: nil}}}}},
 			expectedResult: true,
 			cycleFrom:      4,
 			cycleTo:        2,
 		},
 		{
-			inputList:      &l.ListNode{Val: 1, Next: nil},
+			inputList:      &l.Node{Val: 1, Next: nil},
 			expectedResult: false,
 			cycleFrom:      -1,
 		},
 		{
-			inputList:      &l.ListNode{Val: 1, Next: nil},
+			inputList:      &l.Node{Val: 1, Next: nil},
 			expectedResult: true,
 			cycleFrom:      0,
 			cycleTo:        0,
 		},
 		{
-			inputList:      &l.ListNode{Val: 0, Next: &l.ListNode{Val: 0, Next: nil}},
+			inputList:      &l.Node{Val: 0, Next: &l.Node{Val: 0, Next: nil}},
 			expectedResult: false,
 			cycleFrom:      -1,
 		},
 		{
-			inputList:      &l.ListNode{Val: 1, Next: &l.ListNode{Val: 2, Next: nil}},
+			inputList:      &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: nil}},
 			expectedResult: true,
 			cycleFrom:      1,
 			cycleTo:        0,
 		},
 		{
-			inputList:      &l.ListNode{Val: 3, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 0, Next: &l.ListNode{Val: -4, Next: nil}}}},
+			inputList:      &l.Node{Val: 3, Next: &l.Node{Val: 2, Next: &l.Node{Val: 0, Next: &l.Node{Val: -4, Next: nil}}}},
 			expectedResult: true,
 			cycleFrom:      3,
 			cycleTo:        1,
 		},
 		{
-			inputList:      &l.ListNode{Val: 1, Next: &l.ListNode{Val: 2, Next: &l.ListNode{Val: 5, Next: &l.ListNode{Val: 7, Next: &l.ListNode{Val: 8, Next: &l.ListNode{Val: 0, Next: nil}}}}}},
+			inputList:      &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 5, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: &l.Node{Val: 0, Next: nil}}}}}},
 			expectedResult: false,
 			cycleFrom:      -1,
 		},
@@ -78,11 +78,11 @@ func Test_HasCycle(t *testing.T) {
 	}
 }
 
-func addCycle(head *l.ListNode, cycleFrom, cycleTo int) {
+func addCycle(head *l.Node, cycleFrom, cycleTo int) {
 	if cycleFrom == -1 {
 		return
 	}
-	var targetNode *l.ListNode
+	var targetNode *l.Node
 	for i := 0; i <= cycleFrom; i++ {
 		if i == cycleTo {
 			targetNode = head

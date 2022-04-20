@@ -1,11 +1,8 @@
 package delete_node_from_linked_list
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import l "leetcode/internal/easy-problems/linked-list"
 
-func deleteNode(node *ListNode) {
+func deleteNode(node *l.Node) {
 	node.Val, node.Next = node.Next.Val, node.Next.Next
 	// *node = *(node.Next)
 }

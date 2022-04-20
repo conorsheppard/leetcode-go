@@ -2,7 +2,7 @@ package remove_duplicates_from_linked_list
 
 import l "leetcode/internal/easy-problems/linked-list"
 
-func deleteDuplicates(head *l.ListNode) *l.ListNode {
+func deleteDuplicates(head *l.Node) *l.Node {
 	if head == nil {
 		return head
 	}
@@ -18,7 +18,7 @@ func deleteDuplicates(head *l.ListNode) *l.ListNode {
 	return ref
 }
 
-func deleteDuplicatesIfElse(head *l.ListNode) *l.ListNode {
+func deleteDuplicatesIfElse(head *l.Node) *l.Node {
 	if head == nil {
 		return head
 	}
