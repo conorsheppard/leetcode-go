@@ -2,6 +2,7 @@ package merge_two_sorted_lists
 
 import (
 	"fmt"
+	l "leetcode/internal/easy-problems/linked-list"
 	"testing"
 )
 
@@ -16,9 +17,9 @@ import (
 
 func Test_MergeTwoSortedLists(t *testing.T) {
 	tests := []struct {
-		list1        *ListNode
-		list2        *ListNode
-		expectedList *ListNode
+		list1        *l.Node
+		list2        *l.Node
+		expectedList *l.Node
 	}{
 		{
 			list1:        nil,
@@ -27,68 +28,68 @@ func Test_MergeTwoSortedLists(t *testing.T) {
 		},
 		{
 			list1:        nil,
-			list2:        &ListNode{Val: 0, Next: nil},
-			expectedList: &ListNode{Val: 0, Next: nil},
+			list2:        &l.Node{Val: 0, Next: nil},
+			expectedList: &l.Node{Val: 0, Next: nil},
 		},
 		{
-			list1: &ListNode{
+			list1: &l.Node{
 				Val:  2,
-				Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}},
+				Next: &l.Node{Val: 3, Next: &l.Node{Val: 4, Next: nil}},
 			},
-			list2: &ListNode{
+			list2: &l.Node{
 				Val:  5,
-				Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: nil}},
+				Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: nil}},
 			},
-			expectedList: &ListNode{
+			expectedList: &l.Node{
 				Val: 2,
-				Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val: 5,
-					Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: nil}},
+				Next: &l.Node{Val: 3, Next: &l.Node{Val: 4, Next: &l.Node{Val: 5,
+					Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: nil}},
 				}}},
 			},
 		},
 		{
-			list1: &ListNode{
+			list1: &l.Node{
 				Val:  2,
-				Next: &ListNode{Val: 3, Next: &ListNode{Val: 7, Next: nil}},
+				Next: &l.Node{Val: 3, Next: &l.Node{Val: 7, Next: nil}},
 			},
-			list2: &ListNode{
+			list2: &l.Node{
 				Val:  5,
-				Next: &ListNode{Val: 6, Next: &ListNode{Val: 8, Next: nil}},
+				Next: &l.Node{Val: 6, Next: &l.Node{Val: 8, Next: nil}},
 			},
-			expectedList: &ListNode{
-				Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}}},
+			expectedList: &l.Node{
+				Val: 2, Next: &l.Node{Val: 3, Next: &l.Node{Val: 5, Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: nil}}}}},
 			},
 		},
 		{
-			list1: &ListNode{
+			list1: &l.Node{
 				Val:  1,
-				Next: &ListNode{Val: 2, Next: &ListNode{Val: 5, Next: &ListNode{Val: 7, Next: nil}}},
+				Next: &l.Node{Val: 2, Next: &l.Node{Val: 5, Next: &l.Node{Val: 7, Next: nil}}},
 			},
-			list2: &ListNode{
+			list2: &l.Node{
 				Val:  5,
-				Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: nil}},
+				Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: nil}},
 			},
-			expectedList: &ListNode{
-				Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 5, Next: &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}}}}}},
-			},
-		},
-		{
-			list1: &ListNode{
-				Val:  7,
-				Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}}},
-			},
-			list2: &ListNode{
-				Val:  7,
-				Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}},
-			},
-			expectedList: &ListNode{
-				Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: &ListNode{Val: 7, Next: nil}}}}}},
+			expectedList: &l.Node{
+				Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 5, Next: &l.Node{Val: 5, Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: nil}}}}}},
 			},
 		},
 		{
-			list1:        &ListNode{Val: 1, Next: nil},
-			list2:        &ListNode{Val: 0, Next: nil},
-			expectedList: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}},
+			list1: &l.Node{
+				Val:  7,
+				Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: nil}}},
+			},
+			list2: &l.Node{
+				Val:  7,
+				Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: nil}},
+			},
+			expectedList: &l.Node{
+				Val: 7, Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: &l.Node{Val: 7, Next: nil}}}}}},
+			},
+		},
+		{
+			list1:        &l.Node{Val: 1, Next: nil},
+			list2:        &l.Node{Val: 0, Next: nil},
+			expectedList: &l.Node{Val: 0, Next: &l.Node{Val: 1, Next: nil}},
 		},
 	}
 

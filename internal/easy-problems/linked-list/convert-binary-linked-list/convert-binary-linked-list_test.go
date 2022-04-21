@@ -2,6 +2,7 @@ package convert_binary_linked_list
 
 import (
 	"fmt"
+	l "leetcode/internal/easy-problems/linked-list"
 	"testing"
 )
 
@@ -9,7 +10,7 @@ import (
 // Return the decimal value of the number in a linked list-represented binary number.
 func Test_Convert(t *testing.T) {
 	tests := []struct {
-		inputList      *ListNode
+		inputList      *l.Node
 		expectedResult int
 	}{
 		//{ removed because problem description says list is not empty
@@ -17,19 +18,19 @@ func Test_Convert(t *testing.T) {
 		//	expectedResult: 0,
 		//},
 		{
-			inputList:      &ListNode{Val: 1, Next: &ListNode{Val: 1, Next: nil}},
+			inputList:      &l.Node{Val: 1, Next: &l.Node{Val: 1, Next: nil}},
 			expectedResult: 3,
 		},
 		{
-			inputList:      &ListNode{Val: 1, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}},
+			inputList:      &l.Node{Val: 1, Next: &l.Node{Val: 0, Next: &l.Node{Val: 1, Next: nil}}},
 			expectedResult: 5,
 		},
 		{
-			inputList:      &ListNode{Val: 1, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: &ListNode{Val: 1, Next: nil}}}},
+			inputList:      &l.Node{Val: 1, Next: &l.Node{Val: 0, Next: &l.Node{Val: 1, Next: &l.Node{Val: 1, Next: nil}}}},
 			expectedResult: 11,
 		},
 		{
-			inputList:      &ListNode{Val: 1, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: &ListNode{Val: 1, Next: &ListNode{Val: 1, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: &ListNode{Val: 1, Next: nil}}}}}}}},
+			inputList:      &l.Node{Val: 1, Next: &l.Node{Val: 0, Next: &l.Node{Val: 1, Next: &l.Node{Val: 1, Next: &l.Node{Val: 1, Next: &l.Node{Val: 0, Next: &l.Node{Val: 1, Next: &l.Node{Val: 1, Next: nil}}}}}}}},
 			expectedResult: 187,
 		},
 	}

@@ -2,17 +2,18 @@ package reverse_list
 
 import (
 	"fmt"
+	l "leetcode/internal/easy-problems/linked-list"
 	"testing"
 )
 
 func Test_reverseList(t *testing.T) {
 	tests := []struct {
-		inputList            *ListNode
-		expectedReversedList *ListNode
+		inputList            *l.Node
+		expectedReversedList *l.Node
 	}{
 		{
-			inputList:            &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}}}}}},
-			expectedReversedList: &ListNode{Val: 8, Next: &ListNode{Val: 7, Next: &ListNode{Val: 6, Next: &ListNode{Val: 5, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3, Next: &ListNode{Val: 2, Next: &ListNode{Val: 1, Next: nil}}}}}}}},
+			inputList:            &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: &l.Node{Val: 4, Next: &l.Node{Val: 5, Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: nil}}}}}}}},
+			expectedReversedList: &l.Node{Val: 8, Next: &l.Node{Val: 7, Next: &l.Node{Val: 6, Next: &l.Node{Val: 5, Next: &l.Node{Val: 4, Next: &l.Node{Val: 3, Next: &l.Node{Val: 2, Next: &l.Node{Val: 1, Next: nil}}}}}}}},
 		},
 		{
 			inputList:            nil,

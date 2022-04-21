@@ -2,36 +2,37 @@ package delete_node_from_linked_list
 
 import (
 	"fmt"
+	l "leetcode/internal/easy-problems/linked-list"
 	"testing"
 )
 
 func Test_deleteNode(t *testing.T) {
 	tests := []struct {
-		linkedList     *ListNode
+		linkedList     *l.Node
 		deleteNodeVal  int
-		expectedResult *ListNode
+		expectedResult *l.Node
 	}{
 		{
-			linkedList:     &ListNode{Val: 4, Next: &ListNode{Val: 5, Next: &ListNode{Val: 1, Next: &ListNode{Val: 9, Next: nil}}}},
+			linkedList:     &l.Node{Val: 4, Next: &l.Node{Val: 5, Next: &l.Node{Val: 1, Next: &l.Node{Val: 9, Next: nil}}}},
 			deleteNodeVal:  5,
-			expectedResult: &ListNode{Val: 4, Next: &ListNode{Val: 1, Next: &ListNode{Val: 9, Next: nil}}},
+			expectedResult: &l.Node{Val: 4, Next: &l.Node{Val: 1, Next: &l.Node{Val: 9, Next: nil}}},
 		},
 		{
-			linkedList:     &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
+			linkedList:     &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: nil}},
 			deleteNodeVal:  1,
-			expectedResult: &ListNode{Val: 2, Next: nil},
+			expectedResult: &l.Node{Val: 2, Next: nil},
 		},
 		{
-			linkedList:     &ListNode{Val: 3, Next: &ListNode{Val: 5, Next: &ListNode{Val: 1, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}}},
+			linkedList:     &l.Node{Val: 3, Next: &l.Node{Val: 5, Next: &l.Node{Val: 1, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: nil}}}}},
 			deleteNodeVal:  1,
-			expectedResult: &ListNode{Val: 3, Next: &ListNode{Val: 5, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}},
+			expectedResult: &l.Node{Val: 3, Next: &l.Node{Val: 5, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: nil}}}},
 		},
 	}
 
 	for i, test := range tests {
 		fmt.Printf("test %d\n", i)
 
-		var ref *ListNode
+		var ref *l.Node
 		linkedList := test.linkedList
 
 		for ; linkedList.Next != nil; linkedList = linkedList.Next {

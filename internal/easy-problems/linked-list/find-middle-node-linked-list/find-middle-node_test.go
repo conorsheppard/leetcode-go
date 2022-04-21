@@ -2,6 +2,7 @@ package find_middle_node_linked_list
 
 import (
 	"fmt"
+	l "leetcode/internal/easy-problems/linked-list"
 	"testing"
 )
 
@@ -10,32 +11,32 @@ import (
 // https://leetcode.com/problems/middle-of-the-linked-list/
 func Test_Convert(t *testing.T) {
 	tests := []struct {
-		inputList          *ListNode
-		expectedMiddleNode *ListNode
+		inputList          *l.Node
+		expectedMiddleNode *l.Node
 	}{
 		//{ removed because problem description says list is not empty
 		//	inputList:      nil,
 		//	expectedResult: 0,
 		//},
 		{
-			inputList:          &ListNode{Val: 1, Next: nil},
-			expectedMiddleNode: &ListNode{Val: 1, Next: nil},
+			inputList:          &l.Node{Val: 1, Next: nil},
+			expectedMiddleNode: &l.Node{Val: 1, Next: nil},
 		},
 		{
-			inputList:          &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
-			expectedMiddleNode: &ListNode{Val: 2, Next: nil},
+			inputList:          &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: nil}},
+			expectedMiddleNode: &l.Node{Val: 2, Next: nil},
 		},
 		{
-			inputList:          &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}}},
-			expectedMiddleNode: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}},
+			inputList:          &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: nil}}},
+			expectedMiddleNode: &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: nil}},
 		},
 		{
-			inputList:          &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}}},
-			expectedMiddleNode: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}},
+			inputList:          &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: &l.Node{Val: 4, Next: nil}}}},
+			expectedMiddleNode: &l.Node{Val: 3, Next: &l.Node{Val: 4, Next: nil}},
 		},
 		{
-			inputList:          &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}}}}}},
-			expectedMiddleNode: &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}},
+			inputList:          &l.Node{Val: 1, Next: &l.Node{Val: 2, Next: &l.Node{Val: 3, Next: &l.Node{Val: 4, Next: &l.Node{Val: 5, Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: nil}}}}}}}},
+			expectedMiddleNode: &l.Node{Val: 5, Next: &l.Node{Val: 6, Next: &l.Node{Val: 7, Next: &l.Node{Val: 8, Next: nil}}}},
 		},
 	}
 
