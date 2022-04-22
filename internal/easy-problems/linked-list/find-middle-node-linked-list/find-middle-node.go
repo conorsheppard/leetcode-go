@@ -12,3 +12,9 @@ func middleNode(head *l.Node) *l.Node {
 	}
 	return middleNode
 }
+
+func middleNode2Pointers(head *l.Node) *l.Node {
+	for fast := head; fast != nil && fast.Next != nil; head, fast = head.Next, fast.Next.Next {
+	}
+	return head
+}

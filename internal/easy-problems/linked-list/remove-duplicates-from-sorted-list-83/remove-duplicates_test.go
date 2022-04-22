@@ -1,4 +1,4 @@
-package remove_duplicates_from_linked_list
+package remove_duplicates_from_sorted_list_83
 
 import (
 	"fmt"
@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 func Test_reverseList(t *testing.T) {
 	tests := []struct {
 		inputList    *l.Node

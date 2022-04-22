@@ -99,23 +99,25 @@ func Test_MergeTwoSortedLists(t *testing.T) {
 
 		result := mergeTwoLists(test.list1, test.list2)
 
-		for result != nil || test.expectedList != nil {
-			if result == nil && test.expectedList != nil {
-				t.Error("not equal, result is nil, test.expectedList not nil")
-				break
-			} else if result != nil && test.expectedList == nil {
-				t.Errorf("not equal, result is not nil, test.expectedList is nil")
-				t.Skip()
-			} else if result == nil && test.expectedList == nil {
-				fmt.Println("lists are both nil. PASS.")
-				break
-			}
-			if result.Val != test.expectedList.Val {
-				t.Error("values are not equal")
-				break
-			}
-			result = result.Next
-			test.expectedList = test.expectedList.Next
-		}
+		checkListEquality(result, test.expectedList)
 	}
+}
+
+func checkListEquality(result, expectedList *l.Node) (bool, string) {
+	for result != nil || expectedList != nil {
+		if result == nil && expectedList != nil {
+			return false, "not equal, result is nil, test.expectedList not nil"
+		} else if result != nil && expectedList == nil {
+			return false, "not equal, result is not nil, test.expectedList is nil"
+		} else if result == nil && expectedList == nil {
+			return true, "lists are both nil. PASS."
+		}
+		if result.Val != expectedList.Val {
+			return false, "values are not equal"
+		}
+		result = result.Next
+		expectedList = expectedList.Next
+	}
+
+	return false, ""
 }

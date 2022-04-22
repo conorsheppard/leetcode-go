@@ -1,7 +1,8 @@
-package remove_duplicates_from_linked_list
+package remove_duplicates_from_sorted_list_83
 
 import l "leetcode/internal/easy-problems/linked-list"
 
+// https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 func deleteDuplicates(head *l.Node) *l.Node {
 	if head == nil {
 		return head
