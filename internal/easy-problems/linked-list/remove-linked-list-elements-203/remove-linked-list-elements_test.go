@@ -44,7 +44,7 @@ func Test_RemoveElements(t *testing.T) {
 
 		result := removeElements(test.input, test.removeVal)
 
-		success, message := checkListEquality(result, test.expectedOutput)
+		success, message := l.CheckListEquality(result, test.expectedOutput)
 
 		if !success {
 			t.Errorf("FAIL: %s", message)
@@ -52,23 +52,4 @@ func Test_RemoveElements(t *testing.T) {
 			fmt.Printf(message)
 		}
 	}
-}
-
-func checkListEquality(result, expectedList *l.Node) (bool, string) {
-	for result != nil || expectedList != nil {
-		if result == nil && expectedList != nil {
-			return false, "not equal, result is nil, test.expectedList not nil\n"
-		} else if result != nil && expectedList == nil {
-			return false, "not equal, result is not nil, test.expectedList is nil\n"
-		} else if result == nil && expectedList == nil {
-			return true, "lists are both nil. PASS.\n"
-		}
-		if result.Val != expectedList.Val {
-			return false, "expected: " + l.GetLinkedListAsString(expectedList) + ", got: " + l.GetLinkedListAsString(result) + "\n"
-		}
-		result = result.Next
-		expectedList = expectedList.Next
-	}
-
-	return true, "PASS\n"
 }

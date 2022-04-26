@@ -21,3 +21,22 @@ func GetLinkedListAsString(l1 *Node) string {
 	}
 	return listStr
 }
+
+func CheckListEquality(result, expectedList *Node) (bool, string) {
+	for result != nil || expectedList != nil {
+		if result == nil && expectedList != nil {
+			return false, "not equal, result is nil, test.expectedList not nil\n"
+		} else if result != nil && expectedList == nil {
+			return false, "not equal, result is not nil, test.expectedList is nil\n"
+		} else if result == nil && expectedList == nil {
+			return true, "lists are both nil. PASS.\n"
+		}
+		if result.Val != expectedList.Val {
+			return false, "expected: " + GetLinkedListAsString(expectedList) + ", got: " + GetLinkedListAsString(result) + "\n"
+		}
+		result = result.Next
+		expectedList = expectedList.Next
+	}
+
+	return true, "PASS\n"
+}
