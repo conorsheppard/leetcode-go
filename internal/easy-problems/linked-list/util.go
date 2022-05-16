@@ -15,10 +15,9 @@ func GetLinkedListAsString(l1 *Node) string {
 		listStr = fmt.Sprintf("%s%d", listStr, l1.Val)
 		if l1.Next != nil {
 			listStr = fmt.Sprintf("%s, ", listStr)
-		} else {
-			listStr = fmt.Sprintf("%s]\n", listStr)
 		}
 	}
+	listStr = fmt.Sprintf("%s]", listStr)
 	return listStr
 }
 
