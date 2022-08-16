@@ -1,6 +1,6 @@
 package find_middle_node_linked_list
 
-import l "leetcode/internal/easy-problems/linked-list"
+import l "leetcode-go/internal/easy-problems/linked-list"
 
 // https://leetcode.com/problems/middle-of-the-linked-list/
 func middleNode(head *l.Node) *l.Node {

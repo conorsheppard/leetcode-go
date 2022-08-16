@@ -2,7 +2,7 @@ package linked_list_cycle_I
 
 import (
 	"fmt"
-	l "leetcode/internal/easy-problems/linked-list"
+	l "leetcode-go/internal/easy-problems/linked-list"
 	"testing"
 )
 

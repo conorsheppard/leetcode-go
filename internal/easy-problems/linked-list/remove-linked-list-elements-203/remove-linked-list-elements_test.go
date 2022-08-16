@@ -2,7 +2,7 @@ package remove_linked_list_elements_203
 
 import (
 	"fmt"
-	l "leetcode/internal/easy-problems/linked-list"
+	l "leetcode-go/internal/easy-problems/linked-list"
 	"testing"
 )
 

@@ -1,6 +1,6 @@
 package remove_linked_list_elements_203
 
-import l "leetcode/internal/easy-problems/linked-list"
+import l "leetcode-go/internal/easy-problems/linked-list"
 
 // https://leetcode.com/problems/remove-linked-list-elements/
 func removeElements(head *l.Node, val int) *l.Node {

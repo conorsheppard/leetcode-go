@@ -2,7 +2,7 @@ package find_middle_node_linked_list
 
 import (
 	"fmt"
-	l "leetcode/internal/easy-problems/linked-list"
+	l "leetcode-go/internal/easy-problems/linked-list"
 	"testing"
 )
 

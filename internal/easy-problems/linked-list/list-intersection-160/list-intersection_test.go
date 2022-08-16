@@ -2,7 +2,7 @@ package list_intersection_160
 
 import (
 	"fmt"
-	l "leetcode/internal/easy-problems/linked-list"
+	l "leetcode-go/internal/easy-problems/linked-list"
 	"testing"
 )
 

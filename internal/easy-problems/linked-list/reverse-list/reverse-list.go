@@ -1,6 +1,6 @@
 package reverse_list
 
-import l "leetcode/internal/easy-problems/linked-list"
+import l "leetcode-go/internal/easy-problems/linked-list"
 
 func reverseList(head *l.Node) *l.Node {
 	var cur *l.Node

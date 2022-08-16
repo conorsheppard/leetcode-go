@@ -1,6 +1,6 @@
 package convert_binary_linked_list
 
-import l "leetcode/internal/easy-problems/linked-list"
+import l "leetcode-go/internal/easy-problems/linked-list"
 
 // https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
 // converts a binary number, represented as a linked list, into a decimal number
