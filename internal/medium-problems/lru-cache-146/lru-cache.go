@@ -24,6 +24,13 @@ func New(capacity int) Cache {
 }
 
 func (c *cache) Put(k, v string) {
+	node, isPresent := c.listMap[k]
+	if isPresent {
+		node.val = &v
+		c.mru = node
+		return
+	}
+
 	newNode := &listNode{
 		val:  &v,
 		next: nil,
@@ -47,13 +54,8 @@ func (c *cache) Put(k, v string) {
 		}
 	}
 
-	if node, isPresent := c.listMap[k]; isPresent {
-		node.val = &v
-		c.mru = node
-	}
-
 	c.listMap[k] = newNode
-	if c.currentSize != c.capacity {
+	if c.currentSize != c.capacity && !isPresent {
 		c.currentSize++
 	}
 }

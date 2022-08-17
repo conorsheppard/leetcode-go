@@ -198,3 +198,42 @@ func TestExtraTestCases(t *testing.T) {
 		t.Errorf("FAIL: expected %s, got %s\n", "dogs", *result)
 	}
 }
+
+func TestExtraTestCases2(t *testing.T) {
+	c := New(2)
+	c.Put("blue", "jean")         // cache is [{"blue":"jean"}]
+	c.Put("let's", "dance")       // cache is [{"blue":"jean"}, {"let's":"dance"}]
+	c.Put("blue", "jeans")        // cache is [{"let's":"dance"}, {"blue":"jeans"}]
+	c.Put("china", "girl")        // cache is [{"blue":"jeans"}, {"china":"girl"}]
+	result, err := c.Get("let's") // returns error
+	if result != nil || err.Error() != new(noElementError).Error() {
+		t.Errorf("FAIL: expected %v, got %s\n", nil, *result)
+	}
+	result, err = c.Get("blue") // returns "jeans", cache becomes [{"china":"girl"}, {"blue":"jeans"}]
+	if *result != "jeans" || err != nil {
+		t.Errorf("FAIL: expected %s, got %s\n", "jeans", *result)
+	}
+}
+
+func TestExtraTestCases3(t *testing.T) {
+	c := New(2)
+	result, err := c.Get("let's") // cache is []
+	if result != nil || err.Error() != new(noElementError).Error() {
+		t.Errorf("FAIL: expected %v, got %s\n", nil, *result)
+	}
+	c.Put("let's", "dance")     // cache is [{"let's": &listNode1{val: "dance", next: nil}}]
+	result, err = c.Get("blue") // returns -1
+	if result != nil || err.Error() != new(noElementError).Error() {
+		t.Errorf("FAIL: expected %v, got %s\n", nil, *result)
+	}
+	c.Put("blue", "jean")       // cache: [{"let's": &listNode1{val: "dance", next: listNode2}}, {"blue": &listNode2{val: "jean", next: nil}}]
+	c.Put("blue", "jeans")      // cache: [{"let's": &listNode1{val: "dance", next: listNode2}}, {"blue": &listNode2{val: "jeans", next: nil}}]
+	result, err = c.Get("blue") // returns "jeans"
+	if *result != "jeans" || err != nil {
+		t.Errorf("FAIL: expected %s, got %s\n", "jeans", *result)
+	}
+	result, err = c.Get("let's") // returns 6, // cache: [{"blue": &listNode2{val: "jeans", next: listNode1}}, {"let's": &listNode1{val: "dance", next: nil}}]
+	if *result != "dance" || err != nil {
+		t.Errorf("FAIL: expected %s, got %s\n", "dance", *result)
+	}
+}
