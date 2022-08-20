@@ -1,11 +1,15 @@
-package is_palindrome
+package is_palindrome_number
 
 import "math"
 
 // https://leetcode.com/problems/palindrome-number/
 func isPalindrome(x int) bool {
-	if x < 0 { return false }
-	if x < 10 { return true }
+	if x < 0 {
+		return false
+	}
+	if x < 10 {
+		return true
+	}
 	var arr []int
 	x = int(math.Abs(float64(x)))
 	for x > 0 {

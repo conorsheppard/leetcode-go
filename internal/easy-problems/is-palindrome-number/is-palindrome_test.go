@@ -1,4 +1,4 @@
-package is_palindrome
+package is_palindrome_number
 
 import (
 	"fmt"
@@ -7,8 +7,8 @@ import (
 
 // https://leetcode.com/problems/palindrome-number/
 func Test_IsPalindrome(t *testing.T) {
-	tests := []struct{
-		input int
+	tests := []struct {
+		input        int
 		isPalindrome bool
 	}{
 		{0, true},
