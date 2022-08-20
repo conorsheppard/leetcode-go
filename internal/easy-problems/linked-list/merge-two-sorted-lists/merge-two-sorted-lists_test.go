@@ -2,7 +2,7 @@ package merge_two_sorted_lists
 
 import (
 	"fmt"
-	l "leetcode-go/internal/easy-problems/linked-list"
+	l "github.com/conorsheppard/leetcode-go/internal/easy-problems/linked-list"
 	"testing"
 )
 

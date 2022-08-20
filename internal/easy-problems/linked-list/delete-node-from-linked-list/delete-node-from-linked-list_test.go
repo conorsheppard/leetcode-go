@@ -2,7 +2,7 @@ package delete_node_from_linked_list
 
 import (
 	"fmt"
-	l "leetcode-go/internal/easy-problems/linked-list"
+	l "github.com/conorsheppard/leetcode-go/internal/easy-problems/linked-list"
 	"testing"
 )
 

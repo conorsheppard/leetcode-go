@@ -1,7 +1,7 @@
 package list_intersection_160
 
 import (
-	l "leetcode-go/internal/easy-problems/linked-list"
+	l "github.com/conorsheppard/leetcode-go/internal/easy-problems/linked-list"
 	"math"
 )
 

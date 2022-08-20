@@ -1,7 +1,7 @@
 package is_palindrome_linked_list_234
 
 import (
-	l "leetcode-go/internal/easy-problems/linked-list"
+	l "github.com/conorsheppard/leetcode-go/internal/easy-problems/linked-list"
 )
 
 // Time: O(n), Space: O(1)

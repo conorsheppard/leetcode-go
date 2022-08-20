@@ -2,7 +2,7 @@ package remove_duplicates_from_sorted_list_83
 
 import (
 	"fmt"
-	l "leetcode-go/internal/easy-problems/linked-list"
+	l "github.com/conorsheppard/leetcode-go/internal/easy-problems/linked-list"
 	"testing"
 )
 

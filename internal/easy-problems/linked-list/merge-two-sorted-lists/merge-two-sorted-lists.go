@@ -1,6 +1,6 @@
 package merge_two_sorted_lists
 
-import l "leetcode-go/internal/easy-problems/linked-list"
+import l "github.com/conorsheppard/leetcode-go/internal/easy-problems/linked-list"
 
 // https://leetcode.com/problems/merge-two-sorted-lists/
 func mergeTwoLists(list1, list2 *l.Node) *l.Node {
