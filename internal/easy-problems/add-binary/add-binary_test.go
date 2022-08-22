@@ -38,7 +38,7 @@ func Test_AddBinary(t *testing.T) {
 	for i := range tests {
 		test := tests[i]
 		fmt.Printf("test %d\n", i)
-		result := AddBinary(test.inputA, test.inputB)
+		result := addBinary(test.inputA, test.inputB)
 
 		if result != test.expectedOutput {
 			t.Errorf("test %d: error", i)

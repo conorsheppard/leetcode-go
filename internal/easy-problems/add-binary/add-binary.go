@@ -1,7 +1,7 @@
 package add_binary
 
 // AddBinary https://leetcode.com/problems/add-binary/
-func AddBinary(a, b string) string {
+func addBinary(a, b string) string {
 	result := ""
 	longestBinStrLength := 0
 	stringIndexer := 1
@@ -18,12 +18,12 @@ func AddBinary(a, b string) string {
 	}
 	for stringIndexer <= longestBinStrLength+1 {
 		if stringIndexer <= lenA {
-			leastSigDigitA = a[lenA-stringIndexer:lenA-stringIndexer+1]
+			leastSigDigitA = a[lenA-stringIndexer : lenA-stringIndexer+1]
 		} else {
 			leastSigDigitA = "0"
 		}
 		if stringIndexer <= lenB {
-			leastSigDigitB = b[lenB-stringIndexer:lenB-stringIndexer+1]
+			leastSigDigitB = b[lenB-stringIndexer : lenB-stringIndexer+1]
 		} else {
 			leastSigDigitB = "0"
 		}
@@ -51,7 +51,7 @@ func AddBinary(a, b string) string {
 				carryOver = "1"
 			}
 		}
-		if stringIndexer == longestBinStrLength+1 && sum == "0"{
+		if stringIndexer == longestBinStrLength+1 && sum == "0" {
 			break
 		}
 		result = sum + result
